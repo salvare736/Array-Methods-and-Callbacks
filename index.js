@@ -54,7 +54,7 @@ function getFinals(data){
     return finalMatches;
 }
 
-console.log(getFinals(fifaData));
+// console.log(getFinals(fifaData));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
