@@ -13,14 +13,31 @@ console.log(finals2014);
 
 //(a) Home Team name for 2014 world cup final
 
+console.log(finals2014[0]["Home Team Name"])
+
 //(b) Away Team name for 2014 world cup final
+
+console.log(finals2014[0]["Away Team Name"])
 
 //(c) Home Team goals for 2014 world cup final
 
+console.log(finals2014[0]["Home Team Goals"])
+
 //(d) Away Team goals for 2014 world cup final
+
+console.log(finals2014[0]["Away Team Goals"])
 
 //(e) Winner of 2014 world cup final */
 
+if(finals2014[0]["Home Team Goals"] > finals2014[0]["Away Team Goals"]){
+    console.log(finals2014[0]["Home Team Name"])
+}
+if(finals2014[0]["Home Team Goals"] < finals2014[0]["Away Team Goals"]){
+    console.log(finals2014[0]["Away Team Name"])
+}
+if(finals2014[0]["Home Team Goals"] === finals2014[0]["Away Team Goals"]){
+    console.log("This game was a tie")
+}
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
