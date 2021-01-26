@@ -54,7 +54,7 @@ function getFinals(data){
     return finalMatches;
 }
 
-// console.log(getFinals(fifaData));
+console.log(getFinals(fifaData));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -70,7 +70,7 @@ function getYears(array, callback) {
     return finalMatchYears;
 }
 
-// console.log(getYears(fifaData, getFinals));
+console.log(getYears(fifaData, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -89,13 +89,13 @@ function getWinners(array, callback) {
             return item["Away Team Name"];
         }
         if(item["Home Team Goals"] === item["Away Team Goals"]){
-            return `Tie between ${item["Home Team Name"]} and ${item["Away Team Name"]}`;
+            return "nobody (tie)";
         }
     });
     return winners;
 }
 
-// console.log(getWinners(fifaData, getFinals));
+console.log(getWinners(fifaData, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -107,11 +107,17 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(array, callback1, callback2) {
+    let cbResults1 = callback1(array);
+    let cbResults2 = callback2(array);
+    let winnersByYear = [];
+    for(let i = 0; i < cbResults1.length; i++){
+        winnersByYear.push(`In ${cbResults1[i]}, ${cbResults2[i]} won the world cup!`);
+    }
+    return winnersByYear;
 }
 
-
+// console.log(getWinnersByYear(fifaData, getYears, getWinners));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
