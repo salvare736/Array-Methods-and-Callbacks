@@ -9,35 +9,35 @@ const finals2014 = fifaData.filter(function(item){
     return item.Year === 2014 && item.Stage === 'Final';
 });
 
-// console.log(finals2014);
+console.log(finals2014);
 
 //(a) Home Team name for 2014 world cup final
 
-// console.log(finals2014[0]["Home Team Name"]);
+console.log(finals2014[0]["Home Team Name"]);
 
 //(b) Away Team name for 2014 world cup final
 
-// console.log(finals2014[0]["Away Team Name"]);
+console.log(finals2014[0]["Away Team Name"]);
 
 //(c) Home Team goals for 2014 world cup final
 
-// console.log(finals2014[0]["Home Team Goals"]);
+console.log(finals2014[0]["Home Team Goals"]);
 
 //(d) Away Team goals for 2014 world cup final
 
-// console.log(finals2014[0]["Away Team Goals"]);
+console.log(finals2014[0]["Away Team Goals"]);
 
 //(e) Winner of 2014 world cup final */
 
-// if(finals2014[0]["Home Team Goals"] > finals2014[0]["Away Team Goals"]){
-//     console.log(finals2014[0]["Home Team Name"]);
-// }
-// if(finals2014[0]["Home Team Goals"] < finals2014[0]["Away Team Goals"]){
-//     console.log(finals2014[0]["Away Team Name"]);
-// }
-// if(finals2014[0]["Home Team Goals"] === finals2014[0]["Away Team Goals"]){
-//     console.log("This game was a tie");
-// }
+if(finals2014[0]["Home Team Goals"] > finals2014[0]["Away Team Goals"]){
+    console.log(finals2014[0]["Home Team Name"]);
+}
+if(finals2014[0]["Home Team Goals"] < finals2014[0]["Away Team Goals"]){
+    console.log(finals2014[0]["Away Team Name"]);
+}
+if(finals2014[0]["Home Team Goals"] === finals2014[0]["Away Team Goals"]){
+    console.log("This game was a tie");
+}
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -54,7 +54,7 @@ function getFinals(data){
     return finalMatches;
 }
 
-// console.log(getFinals(fifaData));
+console.log(getFinals(fifaData));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -70,7 +70,7 @@ function getYears(array, callback) {
     return finalMatchYears;
 }
 
-// console.log(getYears(fifaData, getFinals));
+console.log(getYears(fifaData, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -95,7 +95,7 @@ function getWinners(array, callback) {
     return winners;
 }
 
-// console.log(getWinners(fifaData, getFinals));
+console.log(getWinners(fifaData, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -117,7 +117,7 @@ function getWinnersByYear(array, callback1, callback2, callback3) {
     return winnersByYear;
 }
 
-// console.log(getWinnersByYear(fifaData, getYears, getWinners, getFinals));
+console.log(getWinnersByYear(fifaData, getYears, getWinners, getFinals));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
@@ -130,13 +130,11 @@ Use the higher order function getAverageGoals to do the following:
 */
 
 function getAverageGoals(data) {
-   let homeGoalSum = data.reduce(function(accumulator, item){
-       return accumulator + item["Home Team Goals"];
+   let GoalsSum = data.reduce(function(accumulator, item){
+       return accumulator + item["Home Team Goals"] + item["Away Team Goals"];
    }, 0);
-   let awayGoalSum = data.reduce(function(accumulator, item){
-       return accumulator + item["Away Team Goals"];
-   }, 0);
-   return (homeGoalSum + awayGoalSum) / (data.length * 2);
+//    return Math.round((GoalsSum / data.length) * 100) / 100;      this return line would yield a number instead
+   return (GoalsSum / data.length).toPrecision(3);
 }
 
 console.log(getAverageGoals(getFinals(fifaData)));
